@@ -16,3 +16,4 @@ with DAG(
         task_id='say_hello',
         python_callable=print_hello
     )
+# Add dependencies if needed
