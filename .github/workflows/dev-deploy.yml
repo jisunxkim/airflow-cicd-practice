@@ -1,0 +1,22 @@
+name: Deploy DEV DAG to Local Airflow
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - "dags/dev/**"
+
+jobs:
+  deploy-dev:
+    name: Copy DEV DAG to Airflow
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Copy DAG file to local Airflow DAGs folder
+        run: |
+          mkdir -p /Users/jisunkim/airflow/devs
+          cp -r dags/dev/*.py /Users/jisunkim/airflow/devs/
