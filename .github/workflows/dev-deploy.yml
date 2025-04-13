@@ -5,7 +5,7 @@ on:
     branches:
       - dev
     paths:
-      - "dags/dev/**"
+      - "dags/**"
 
 jobs:
   deploy-dev:
@@ -19,4 +19,4 @@ jobs:
       - name: Copy DAG file to local Airflow DAGs folder
         run: |
           mkdir -p /Users/jisunkim/airflow/devs
-          cp -r dags/dev/*.py /Users/jisunkim/airflow/devs/
+          cp -r dags/*.py /Users/jisunkim/airflow/dags/dev/
